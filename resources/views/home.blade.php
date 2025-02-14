@@ -2,16 +2,15 @@
 
 <body class="ms-3 me-3">
     <h1 class="text-center">Users all data..</h1>
-    <h3 class="text-danger text-center">Current User: {{$usercount}}</h3>
+    <h3 class="text-danger text-center">Current User: {{ $usercount }}</h3>
     <div class="d-flex justify-content-between ms2">
         <div>
-            <a href="{{route('adduser')}}" class="btn btn-info ms-2">Add User</a>
+            <a href="{{ route('adduser') }}" class="btn btn-info ms-2">Add User</a>
         </div>
         <div>
             <form method="GET" class="d-flex align-items-center mb-3">
                 <label class="me-2 fw-bold">Show:</label>
                 <select name="per_page" class="form-select w-auto" onchange="this.form.submit()">
-                    {{-- <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5</option> --}}
                     <option value="10" {{ request('per_page') == 10 ? 'selected' : '' }}>10</option>
                     <option value="20" {{ request('per_page') == 20 ? 'selected' : '' }}>20</option>
                 </select>
@@ -27,6 +26,7 @@
                 <th>Email</th>
                 <th>Created At</th>
                 <th>Updated At</th>
+                <th>Password</th>
                 <th>Action(View/Update/Delete)</th>
             </tr>
             @foreach ($users as $user)
@@ -35,9 +35,10 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->created_at }}</td>
                     <td>{{ $user->updated_at }}</td>
-                    <td><a href="{{route('showuser',$user->id)}}" class="btn btn-secondary ms-2">View</a>
-                        <a href="{{route('edituser',$user->id)}}" class="btn btn-warning ms-2">Update</a>
-                        <form action="{{route('userdelete',$user->id)}}" method="POST" style="display:inline;">
+                    <td>{{ $user->password }}</td>
+                    <td><a href="{{ route('showuser', $user->id) }}" class="btn btn-secondary ms-2">View</a>
+                        <a href="{{ route('edituser', $user->id) }}" class="btn btn-warning ms-2">Update</a>
+                        <form action="{{ route('userdelete', $user->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger ms-2">Delete</button>
@@ -45,8 +46,7 @@
                     </td>
                 </tr>
             @endforeach
-            </table>
-
+        </table>
     @else
         <p>No User Found..</p>
     @endif

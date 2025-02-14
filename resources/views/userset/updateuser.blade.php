@@ -1,5 +1,3 @@
-{{-- @include('userset.layout') --}}
-
 @extends('userset.layout')
 
 
@@ -16,7 +14,7 @@
                 <div class="col-md-6 col-lg-5">
                     <div class="card shadow-lg">
                         <div class="card-body p-4">
-                            <form action="{{route('updateuser',$user->id)}}" method="Post">
+                            <form action="{{ route('updateuser', $user->id) }}" method="Post">
 
                                 @csrf
                                 @method('PUT')
@@ -27,7 +25,8 @@
                                         <label for="first_name"><strong>First Name:</strong></label>
                                     </div>
                                     <div class="col">
-                                        <input type="text" id="first_name" name="first_name" value="{{old('first_name',$user->first_name)}}" required>
+                                        <input type="text" id="first_name" name="first_name"
+                                            value="{{ old('first_name', $user->first_name) }}" required>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -35,7 +34,8 @@
                                         <label for="last_name"><strong>Last Name:</strong></label>
                                     </div>
                                     <div class="col">
-                                        <input type="text" id="last_name" name="last_name" value="{{old('last_name',$user->last_name)}}" required>
+                                        <input type="text" id="last_name" name="last_name"
+                                            value="{{ old('last_name', $user->last_name) }}" required>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="col">
                                         <input type="email" id="email"name="email"
-                                            value="{{old('email',$user->email)}}">
+                                            value="{{ old('email', $user->email) }}">
                                     </div>
                                 </div>
 

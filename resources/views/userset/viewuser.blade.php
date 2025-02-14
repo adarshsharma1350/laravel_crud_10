@@ -10,10 +10,10 @@
             </div>
             <div class="d-flex justify-content-between">
                 <div>
-                    <a href="{{route('adduser')}}" class="btn btn-info ms-2">Add User</a>
+                    <a href="{{ route('adduser') }}" class="btn btn-info ms-2">Add User</a>
                 </div>
                 <div>
-                    <a href="{{route('edituser',$user->id)}}" class="btn btn-warning">Update Profile</a>
+                    <a href="{{ route('edituser', $user->id) }}" class="btn btn-warning">Update Profile</a>
                 </div>
             </div>
 
@@ -25,19 +25,19 @@
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="first_name" class="form-label"><strong>First Name:</strong></label>
-                                        <p>{{$user->first_name}}</p>
+                                        <p>{{ $user->first_name }}</p>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="last_name" class="form-label"><strong>Last Name:</strong></label>
-                                        <p>{{$user->last_name}}</p>
+                                        <p>{{ $user->last_name }}</p>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="email" class="form-label"><strong>Email</strong></label>
-                                        <p>{{$user->email}}</p>
+                                        <p>{{ $user->email }}</p>
                                     </div>
                                 </div>
                                 <div>
@@ -45,12 +45,12 @@
                                         <a href="{{ route('home') }}" class="btn btn-secondary">Back</a>
                                     </div>
                                 </div>
-                                </div>
-                            </form>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </body>
 @endsection

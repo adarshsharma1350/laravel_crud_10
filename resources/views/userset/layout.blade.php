@@ -14,20 +14,21 @@
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <h1>Eloquent CRUD Dashboard</h1></div>
+                <h1>Eloquent CRUD Dashboard</h1>
+            </div>
         </div>
         <div class="row">
-                <h4>@yield('title')</h4>
+            <h4>@yield('title')</h4>
         </div>
         <div class="row">
-                @if (session('status'))
-                    <div class="alert alert-success">
-                        {{session('status')}}
-                    </div>
-                @endif
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
         </div>
         <div class="row">
-                @yield('content')
+            @yield('content')
         </div>
     </div>
 </body>
